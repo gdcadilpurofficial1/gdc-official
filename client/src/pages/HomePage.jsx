@@ -52,9 +52,9 @@ const HomePage = () => {
   return (
     <div>
       <SEO title="Home" description="Government Degree College Adilpur — Providing quality higher education in District Ghotki, Sindh, Pakistan." />
-      {/*”€â”€â”€ HERO SECTION”€â”€â”€ */}
+      {/*───── HERO SECTION ───── */}
       <section style={{
-        position: 'relative', height: '520px', overflow: 'hidden',
+        position: 'relative', minHeight: '420px', height: 'clamp(420px, 70vh, 560px)', overflow: 'hidden',
         background: slides.length > 0 ? 'transparent' : 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))',
       }}>
         {slides.length > 0 ? (
@@ -70,18 +70,18 @@ const HomePage = () => {
                 }} />
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7))',
+                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.75))',
                 }} />
               </div>
             ))}
             {/* Slide indicators */}
             {slides.length > 1 && (
-              <div style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.5rem', zIndex: 10 }}>
+              <div style={{ position: 'absolute', bottom: '1rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.5rem', zIndex: 10 }}>
                 {slides.map((_, idx) => (
                   <button key={idx} onClick={() => setCurrentSlide(idx)}
                     style={{
-                      width: idx === currentSlide ? '32px' : '10px', height: '10px',
-                      borderRadius: '5px', border: 'none', cursor: 'pointer',
+                      width: idx === currentSlide ? '28px' : '8px', height: '8px',
+                      borderRadius: '4px', border: 'none', cursor: 'pointer',
                       background: idx === currentSlide ? 'var(--color-accent)' : 'rgba(255,255,255,0.5)',
                       transition: 'all 0.3s ease',
                     }}
@@ -94,10 +94,10 @@ const HomePage = () => {
             {slides.length > 1 && (
               <>
                 <button onClick={() => setCurrentSlide((p) => (p - 1 + slides.length) % slides.length)}
-                  style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.4)', color: '#fff', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', zIndex: 10 }}
+                  style={{ position: 'absolute', left: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.4)', color: '#fff', border: 'none', borderRadius: '50%', width: '36px', height: '36px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem', zIndex: 10 }}
                   aria-label="Previous slide"><HiChevronLeft /></button>
                 <button onClick={() => setCurrentSlide((p) => (p + 1) % slides.length)}
-                  style={{ position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.4)', color: '#fff', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', zIndex: 10 }}
+                  style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.4)', color: '#fff', border: 'none', borderRadius: '50%', width: '36px', height: '36px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.125rem', zIndex: 10 }}
                   aria-label="Next slide"><HiChevronRight /></button>
               </>
             )}
@@ -107,24 +107,24 @@ const HomePage = () => {
         {/* Hero Content Overlay */}
         <div style={{
           position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          zIndex: 5, textAlign: 'center', padding: '2rem',
+          zIndex: 5, textAlign: 'center', padding: '1.25rem',
         }}>
-          <div className="animate-fade-in">
-            <img src="/gdc-logo.png" alt="GDC Adilpur Logo" style={{ width: '90px', height: '90px', borderRadius: '50%', margin: '0 auto 1rem', border: '3px solid rgba(255,255,255,0.3)', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }} />
-            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: '800', color: '#fff', marginBottom: '0.5rem', textShadow: '0 2px 8px rgba(0,0,0,0.4)', fontFamily: "'Playfair Display', serif" }}>
+          <div className="animate-fade-in" style={{ maxWidth: '640px', width: '100%' }}>
+            <img src="/gdc-logo.png" alt="GDC Adilpur Logo" style={{ width: 'clamp(64px, 14vw, 90px)', height: 'clamp(64px, 14vw, 90px)', borderRadius: '50%', margin: '0 auto 0.75rem', border: '3px solid rgba(255,255,255,0.3)', boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }} />
+            <h1 style={{ fontSize: 'clamp(1.375rem, 5vw, 2.5rem)', fontWeight: '800', color: '#fff', marginBottom: '0.375rem', textShadow: '0 2px 8px rgba(0,0,0,0.5)', fontFamily: "'Playfair Display', serif", lineHeight: '1.2' }}>
               Government Degree College
             </h1>
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', color: 'rgba(255,255,255,0.9)', fontWeight: '300', marginBottom: '0.5rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+            <p style={{ fontSize: 'clamp(0.875rem, 3vw, 1.375rem)', color: 'rgba(255,255,255,0.92)', fontWeight: '400', marginBottom: '0.375rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               Adilpur
             </p>
-            <p style={{ fontSize: '0.9375rem', color: 'rgba(255,255,255,0.75)', maxWidth: '500px', margin: '0 auto 1.5rem' }}>
-              Knowledge· Character· Service
+            <p style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.9375rem)', color: 'rgba(255,255,255,0.8)', maxWidth: '450px', margin: '0 auto 1.25rem' }}>
+              Knowledge · Character · Service
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/admissions" className="btn btn-accent btn-lg" style={{ fontSize: '0.875rem' }}>
+            <div style={{ display: 'flex', gap: '0.625rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/admissions" className="btn btn-accent btn-lg" style={{ fontSize: '0.8125rem', padding: '0.5rem 1.25rem' }}>
                 Admissions <HiArrowRight />
               </Link>
-              <Link to="/about" className="btn btn-lg" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(8px)', fontSize: '0.875rem' }}>
+              <Link to="/about" className="btn btn-lg" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(8px)', fontSize: '0.8125rem', padding: '0.5rem 1.25rem' }}>
                 Learn More
               </Link>
             </div>
@@ -132,17 +132,17 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/*”€â”€â”€ PINNED NOTICES TICKER”€â”€â”€ */}
+      {/*───── PINNED NOTICES TICKER ───── */}
       {notices.filter((n) => n.isPinned).length > 0 && (
-        <section style={{ background: 'var(--color-primary)', color: '#fff', padding: '0.75rem 1.5rem' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '1rem', overflow: 'hidden' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', flexShrink: 0, background: 'var(--color-accent)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-on-accent)' }}>
+        <section style={{ background: 'var(--color-primary)', color: '#fff', padding: '0.625rem 1rem', overflow: 'hidden', position: 'relative', maxWidth: '100vw' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '0.75rem', overflow: 'hidden' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', flexShrink: 0, background: 'var(--color-accent)', padding: '0.2rem 0.625rem', borderRadius: 'var(--radius-full)', fontSize: '0.6875rem', fontWeight: '700', color: 'var(--text-on-accent)' }}>
               <HiSpeakerphone /> NOTICE
             </div>
-            <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', flex: 1 }}>
+            <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', flex: 1, position: 'relative' }}>
               <div style={{ display: 'inline-block', animation: 'marquee 20s linear infinite' }}>
                 {notices.filter((n) => n.isPinned).map((n) => (
-                  <Link key={n._id} to={`/notices`} style={{ color: '#fff', marginRight: '3rem', fontSize: '0.875rem', textDecoration: 'none' }}>
+                  <Link key={n._id} to={`/notices`} style={{ color: '#fff', marginRight: '3rem', fontSize: '0.8125rem', textDecoration: 'none' }}>
                     {n.title}
                   </Link>
                 ))}

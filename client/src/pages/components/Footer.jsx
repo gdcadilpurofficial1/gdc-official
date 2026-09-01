@@ -46,8 +46,8 @@ const Footer = () => {
       <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--color-accent), #E0B44F, var(--color-primary-light), var(--color-accent))' }} />
 
       {/* Main Footer Content */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3.5rem 1.5rem 2.5rem 1.5rem' }}>
-        <div className="grid-responsive" style={{ gridTemplateColumns: '1.2fr 1.5fr 1.1fr', gap: '3rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '2.5rem 1.5rem 2rem 1.5rem' }}>
+        <div className="grid-responsive footer-grid">
 
           {/* College Info */}
           <div>

@@ -47,22 +47,22 @@ const Navbar = () => {
       <div style={{ height: '3px', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-secondary))' }} />
 
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px', gap: '1.5rem' }}>
           {/* Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', flexShrink: 0 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', flexShrink: 0, marginRight: '2.5rem' }}>
             <img src="/gdc-logo.png" alt="GDC Adilpur Logo" style={{ width: '46px', height: '46px', borderRadius: '50%', objectFit: 'cover' }} />
             <div>
-              <div style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: '1.2', letterSpacing: '-0.01em' }}>
+              <div style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: '1.2', letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>
                 GDC Adilpur
               </div>
-              <div style={{ fontSize: '0.625rem', color: 'var(--text-tertiary)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '0.625rem', color: 'var(--text-tertiary)', letterSpacing: '0.06em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                 Government Degree College
               </div>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
             {navLinks.map((link) => (
               <NavLink key={link.to} to={link.to} end={link.to === '/'}
                 style={({ isActive }) => linkStyle(isActive)}
@@ -222,7 +222,7 @@ const Navbar = () => {
 
       <style>{`
         .mobile-nav-toggle { display: none; align-items: center; gap: 0.5rem; }
-        @media (max-width: 900px) {
+        @media (max-width: 1080px) {
           .desktop-nav { display: none !important; }
           .mobile-nav-toggle { display: flex !important; }
         }

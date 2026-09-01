@@ -50,7 +50,7 @@ const AboutPage = () => {
       <section className="section-padding" style={{ background: 'var(--bg-body)' }}>
         <div className="container-custom">
           <SectionHeader tagline="What We Stand For" title="Mission & Vision" />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '1.5rem' }}>
             {profile?.mission && (
               <div className="card" style={{ padding: '2rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
