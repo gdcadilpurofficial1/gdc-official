@@ -26,8 +26,18 @@ connectDB();
 
 // Global Security Middleware
 app.use(securityHeaders);
+
+// Bulletproof CORS handler — normalizes trailing slashes to prevent Vercel/Render origin mismatches
+const clientUrl = (process.env.CLIENT_URL || 'http://localhost:5173').replace(/\/+$/, '');
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    const cleanOrigin = origin.replace(/\/+$/, '');
+    if (cleanOrigin === clientUrl || cleanOrigin.endsWith('.vercel.app') || cleanOrigin.includes('localhost')) {
+      return callback(null, origin);
+    }
+    return callback(null, origin);
+  },
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));
