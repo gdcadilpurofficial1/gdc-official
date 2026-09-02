@@ -17,7 +17,7 @@ const sidebarItems = [
   { label: 'Dashboard', path: '/admin', icon: HiHome, end: true },
   { label: 'College Profile', path: '/admin/college-profile', icon: HiOfficeBuilding },
   { label: 'Hero Slides', path: '/admin/hero-slides', icon: HiPhotograph },
-  { label: 'Director Message', path: '/admin/director-message', icon: HiUserCircle },
+  { label: 'Leadership Messages', path: '/admin/director-message', icon: HiUserCircle },
   { label: 'Departments & Faculty', path: '/admin/departments-faculty', icon: HiAcademicCap },
   { label: 'Programs', path: '/admin/programs', icon: HiAcademicCap },
   { label: 'Admissions Info', path: '/admin/admissions-info', icon: HiInformationCircle },

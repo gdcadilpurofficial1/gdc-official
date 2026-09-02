@@ -13,6 +13,36 @@ const collegeProfileSchema = new mongoose.Schema(
       photoUrl: { type: String, default: '' },
       message: { type: String, default: '' },
     },
+    leadership: {
+      ministerMessage: {
+        title: { type: String, default: 'Minister for Education' },
+        name: { type: String, default: '' },
+        designation: { type: String, default: 'Minister for Education & Literacy, Sindh' },
+        photoUrl: { type: String, default: '' },
+        message: { type: String, default: '' },
+      },
+      secretaryMessage: {
+        title: { type: String, default: 'Secretary College Education' },
+        name: { type: String, default: '' },
+        designation: { type: String, default: 'Secretary, College Education Department, Sindh' },
+        photoUrl: { type: String, default: '' },
+        message: { type: String, default: '' },
+      },
+      dcMessage: {
+        title: { type: String, default: 'Deputy Commissioner' },
+        name: { type: String, default: '' },
+        designation: { type: String, default: 'Deputy Commissioner, District Ghotki' },
+        photoUrl: { type: String, default: '' },
+        message: { type: String, default: '' },
+      },
+      principalMessage: {
+        title: { type: String, default: 'Principal / Director' },
+        name: { type: String, default: '' },
+        designation: { type: String, default: 'Principal, GDC Adilpur' },
+        photoUrl: { type: String, default: '' },
+        message: { type: String, default: '' },
+      },
+    },
     stats: {
       studentCount: { type: Number, default: 0 },
       facultyCount: { type: Number, default: 0 },

@@ -77,8 +77,49 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Director's Full Message */}
-      {dir?.name && (
+      {/* Dignitaries & Leadership Messages */}
+      {profile?.leadership && Object.values(profile.leadership).some((l) => l?.name) ? (
+        <section className="section-padding" style={{ background: 'var(--bg-surface)' }}>
+          <div className="container-custom" style={{ maxWidth: '1000px' }}>
+            <SectionHeader tagline="From the Leadership" title="Messages from Educational Dignitaries" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {[
+                { key: 'ministerMessage', label: 'Minister for Education', data: profile.leadership.ministerMessage, color: 'var(--color-primary)' },
+                { key: 'secretaryMessage', label: 'Secretary College Education', data: profile.leadership.secretaryMessage, color: 'var(--color-secondary)' },
+                { key: 'dcMessage', label: 'Deputy Commissioner', data: profile.leadership.dcMessage, color: '#D69E2E' },
+                { key: 'principalMessage', label: 'Principal / Director', data: profile.leadership.principalMessage || profile.directorMessage, color: 'var(--color-accent)' },
+              ].filter(item => item.data?.name).map((item) => (
+                <div key={item.key} className="card" style={{ padding: '2rem', borderLeft: `4px solid ${item.color}` }}>
+                  <div className="director-grid" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'flex-start' }}>
+                    <div style={{ textAlign: 'center', minWidth: '150px' }}>
+                      {item.data.photoUrl ? (
+                        <img src={item.data.photoUrl} alt={item.data.name} style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.color}`, boxShadow: 'var(--shadow-lg)', margin: '0 auto' }} />
+                      ) : (
+                        <div style={{ width: '140px', height: '140px', borderRadius: '50%', background: 'var(--bg-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+                          <HiUserCircle style={{ fontSize: '4rem', color: 'var(--text-muted)' }} />
+                        </div>
+                      )}
+                      <span className="badge badge-primary" style={{ background: item.color, color: '#fff', fontSize: '0.625rem', marginTop: '0.75rem', display: 'inline-block' }}>
+                        {item.label}
+                      </span>
+                      <h3 style={{ fontSize: '1.0625rem', fontWeight: '700', color: 'var(--text-primary)', marginTop: '0.375rem' }}>{item.data.name}</h3>
+                      <p style={{ fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: '600' }}>{item.data.designation}</p>
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
+                        Message from {item.label}
+                      </h4>
+                      <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: '1.8', whiteSpace: 'pre-wrap' }}>
+                        {item.data.message}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : dir?.name ? (
         <section className="section-padding" style={{ background: 'var(--bg-surface)' }}>
           <div className="container-custom" style={{ maxWidth: '900px' }}>
             <SectionHeader tagline="From the Leadership" title="Principal's Message" />
@@ -102,7 +143,7 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
       {/* Compliance & Affiliation */}
       {profile?.compliance?.affiliatedBoard && (

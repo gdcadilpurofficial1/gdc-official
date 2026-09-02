@@ -26,7 +26,7 @@ const seedData = async () => {
       await User.create({
         name: 'Principal Office',
         email: 'admin@gdcadilpur.edu.pk',
-        passwordHash: 'admin123456',
+        passwordHash: 'Admin@123456',
         role: 'Admin',
       });
       console.log('✔ Admin user created: admin@gdcadilpur.edu.pk');
@@ -45,6 +45,36 @@ const seedData = async () => {
         designation: 'Principal, GDC Adilpur',
         photoUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
         message: 'Welcome to Government Degree College Adilpur. Our institution is dedicated to nurturing academic brilliance, moral integrity, and leadership qualities in the youth of District Ghotki. We strive to empower students with modern knowledge in Science, Arts, and Computer Studies to prepare them for competitive higher education and professional careers.',
+      },
+      leadership: {
+        ministerMessage: {
+          title: 'Minister for Education',
+          name: 'Syed Sardar Ali Shah',
+          designation: 'Minister for Education & Literacy, Sindh',
+          photoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+          message: 'Education is the cornerstone of progress in Sindh. Government Degree College Adilpur stands as a beacon of academic excellence in District Ghotki. We remain committed to providing state-of-the-art facilities, qualified faculty, and inclusive learning environments for our youth.',
+        },
+        secretaryMessage: {
+          title: 'Secretary College Education',
+          name: 'Sadaf Anees',
+          designation: 'Secretary, College Education Department, Sindh',
+          photoUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+          message: 'The College Education Department is continuously upgrading infrastructure and academic quality across degree colleges in Sindh. GDC Adilpur continues to demonstrate exemplary commitment towards student empowerment and digital integration.',
+        },
+        dcMessage: {
+          title: 'Deputy Commissioner',
+          name: 'Muhammad Usman Tanveer (PAS)',
+          designation: 'Deputy Commissioner, District Ghotki',
+          photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
+          message: 'As the local administration, we take immense pride in supporting Government Degree College Adilpur. Youth education and civic engagement are key drivers of regional prosperity in Ghotki.',
+        },
+        principalMessage: {
+          title: 'Principal / Director',
+          name: 'Prof. Ghulam Rasool Kalwar',
+          designation: 'Principal, GDC Adilpur',
+          photoUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+          message: 'Welcome to Government Degree College Adilpur. Our institution is dedicated to nurturing academic brilliance, moral integrity, and leadership qualities in the youth of District Ghotki.',
+        },
       },
       stats: {
         studentCount: 850,

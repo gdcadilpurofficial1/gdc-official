@@ -153,8 +153,55 @@ const HomePage = () => {
         </section>
       )}
 
-      {/*”€â”€â”€ DIRECTOR'S MESSAGE”€â”€â”€ */}
-      {dir?.name && (
+      {/*───── LEADERSHIP & DIGNITARIES MESSAGES ───── */}
+      {(profile?.leadership && Object.values(profile.leadership).some((l) => l?.name)) ? (
+        <section className="section-padding" style={{ background: 'var(--bg-surface)' }}>
+          <div className="container-custom">
+            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+              <p style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-accent)', fontWeight: '700', marginBottom: '0.375rem' }}>
+                Institutional Leadership
+              </p>
+              <h2 style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--text-primary)', fontFamily: "'Playfair Display', serif" }}>
+                Messages from Dignitaries & Leadership
+              </h2>
+            </div>
+
+            <div className="grid-responsive-4" style={{ gap: '1.5rem' }}>
+              {[
+                { key: 'ministerMessage', label: 'Minister for Education', data: profile.leadership?.ministerMessage, badgeColor: 'var(--color-primary)' },
+                { key: 'secretaryMessage', label: 'Secretary College Education', data: profile.leadership?.secretaryMessage, badgeColor: 'var(--color-secondary)' },
+                { key: 'dcMessage', label: 'Deputy Commissioner', data: profile.leadership?.dcMessage, badgeColor: '#D69E2E' },
+                { key: 'principalMessage', label: 'Principal / Director', data: profile.leadership?.principalMessage || profile.directorMessage, badgeColor: 'var(--color-accent)' },
+              ].filter(item => item.data?.name).map((item) => (
+                <div key={item.key} className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                    {item.data.photoUrl ? (
+                      <img src={item.data.photoUrl} alt={item.data.name} style={{ width: '96px', height: '96px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.badgeColor}`, margin: '0 auto', boxShadow: 'var(--shadow-md)' }} />
+                    ) : (
+                      <div style={{ width: '96px', height: '96px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', color: 'var(--text-muted)' }}>👤</div>
+                    )}
+                  </div>
+                  <div style={{ textAlign: 'center', marginBottom: '0.75rem' }}>
+                    <span className="badge badge-primary" style={{ background: item.badgeColor, color: '#fff', fontSize: '0.625rem', marginBottom: '0.375rem', display: 'inline-block' }}>
+                      {item.label}
+                    </span>
+                    <h3 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '0.125rem' }}>{item.data.name}</h3>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: '600' }}>{item.data.designation}</p>
+                  </div>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 5, WebkitBoxOrient: 'vertical' }}>
+                    "{item.data.message}"
+                  </p>
+                  <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+                    <Link to="/about" style={{ fontSize: '0.75rem', color: 'var(--color-primary)', fontWeight: '600', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                      Read Full Profiles <HiArrowRight />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : dir?.name ? (
         <section className="section-padding" style={{ background: 'var(--bg-surface)' }}>
           <div className="container-custom">
             <div className="grid-2col" style={{ alignItems: 'center' }}>
@@ -162,7 +209,7 @@ const HomePage = () => {
                 {dir.photoUrl ? (
                   <img src={dir.photoUrl} alt={dir.name} style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '50%', border: '4px solid var(--color-accent)', boxShadow: 'var(--shadow-xl)', margin: '0 auto' }} />
                 ) : (
-                  <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', color: 'var(--text-muted)' }}>ðŸ‘¤</div>
+                  <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', color: 'var(--text-muted)' }}>👤</div>
                 )}
                 <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-primary)', marginTop: '1rem' }}>{dir.name}</h3>
                 <p style={{ fontSize: '0.875rem', color: 'var(--color-accent)', fontWeight: '500' }}>{dir.designation}</p>
@@ -184,7 +231,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
       {/*”€â”€â”€ STATS COUNTERS”€â”€â”€ */}
       <section ref={statsRef} style={{
