@@ -46,16 +46,16 @@ const Navbar = () => {
       {/* Top accent bar */}
       <div style={{ height: '3px', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-secondary))' }} />
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px', gap: '1.5rem' }}>
+      <div className="nav-container" style={{ maxWidth: '1280px', margin: '0 auto' }}>
+        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px', gap: '0.5rem' }}>
           {/* Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', flexShrink: 0, marginRight: '2.5rem' }}>
-            <img src="/gdc-logo.png" alt="GDC Adilpur Logo" style={{ width: '46px', height: '46px', borderRadius: '50%', objectFit: 'cover' }} />
-            <div>
-              <div style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: '1.2', letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>
+          <Link to="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', textDecoration: 'none', minWidth: 0 }}>
+            <img src="/gdc-logo.png" alt="GDC Adilpur Logo" className="logo-img" style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+            <div style={{ minWidth: 0 }}>
+              <div className="logo-title" style={{ fontSize: '0.9375rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: '1.2', letterSpacing: '-0.01em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 GDC Adilpur
               </div>
-              <div style={{ fontSize: '0.625rem', color: 'var(--text-tertiary)', letterSpacing: '0.06em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+              <div className="logo-subtitle" style={{ fontSize: '0.625rem', color: 'var(--text-tertiary)', letterSpacing: '0.04em', textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 Government Degree College
               </div>
             </div>
@@ -134,19 +134,19 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <div className="mobile-nav-toggle">
+          <div className="mobile-nav-toggle" style={{ flexShrink: 0 }}>
             <button
               onClick={() => setSearchOpen(true)}
               className="btn btn-ghost btn-icon"
-              style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}
+              style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', padding: '0.375rem' }}
               title="Search"
               aria-label="Search"
             >
               <HiSearch />
             </button>
-            <ThemeToggle />
+            <ThemeToggle className="mobile-theme-toggle" />
             <button className="btn btn-ghost btn-icon" onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu" style={{ fontSize: '1.5rem' }}>
+              aria-label="Toggle menu" style={{ fontSize: '1.5rem', padding: '0.375rem' }}>
               {mobileOpen ? <HiX /> : <HiMenuAlt3 />}
             </button>
           </div>
@@ -158,7 +158,7 @@ const Navbar = () => {
         <div className="animate-slide-up" style={{
           position: 'absolute', top: '73px', left: 0, right: 0,
           background: 'var(--bg-surface)', borderBottom: '1px solid var(--border-default)',
-          boxShadow: 'var(--shadow-lg)', padding: '1rem 1.5rem', zIndex: 99,
+          boxShadow: 'var(--shadow-lg)', padding: '1rem 1.25rem', zIndex: 99,
         }}>
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === '/'}
@@ -221,10 +221,21 @@ const Navbar = () => {
       )}
 
       <style>{`
-        .mobile-nav-toggle { display: none; align-items: center; gap: 0.5rem; }
+        .nav-container { padding: 0 1.5rem; }
+        .navbar-logo { margin-right: 2rem; }
+        .mobile-nav-toggle { display: none; align-items: center; gap: 0.25rem; }
+        
         @media (max-width: 1080px) {
+          .nav-container { padding: 0 0.75rem !important; }
+          .navbar-logo { margin-right: 0 !important; }
           .desktop-nav { display: none !important; }
           .mobile-nav-toggle { display: flex !important; }
+        }
+
+        @media (max-width: 380px) {
+          .logo-img { width: 36px !important; height: 36px !important; }
+          .logo-title { font-size: 0.84rem !important; }
+          .logo-subtitle { font-size: 0.52rem !important; }
         }
       `}</style>
     </header>
