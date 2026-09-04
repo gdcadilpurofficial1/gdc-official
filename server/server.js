@@ -73,8 +73,12 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+import { startKeepAlive } from './utils/keepAlive.js';
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+  // Start Keep-Alive Ping Service (6 AM - 10 PM PKT, every 14 mins)
+  startKeepAlive();
 });
 
 export default app;
