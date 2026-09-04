@@ -3,19 +3,20 @@ import CrudTable from '../components/CrudTable';
 import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
+import { formatImageUrl } from '../../utils/urlHelper';
 
 const fields = [
   { name: 'studentName', label: 'Student Name', type: 'text', required: true },
   { name: 'achievement', label: 'Achievement', type: 'textarea', required: true, placeholder: 'What did this student achieve?' },
   { name: 'year', label: 'Year', type: 'text', placeholder: 'e.g. 2024' },
-  { name: 'photoUrl', label: 'Photo URL', type: 'url', placeholder: 'https://res.cloudinary.com/...', hint: 'Upload photo to Cloudinary' },
+  { name: 'photoUrl', label: 'Photo URL', type: 'url', placeholder: 'https://res.cloudinary.com/... or Google Drive link', hint: 'Direct photo link or Google Drive share link' },
 ];
 
 const columns = [
   {
     key: 'photoUrl', label: 'Photo',
     render: (item) => item.photoUrl ? (
-      <img src={item.photoUrl} alt={item.studentName} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', border: '1px solid var(--border-default)' }} />
+      <img src={formatImageUrl(item.photoUrl)} alt={item.studentName} style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%', border: '1px solid var(--border-default)' }} />
     ) : '—',
   },
   { key: 'studentName', label: 'Student Name' },

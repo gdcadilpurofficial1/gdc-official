@@ -7,6 +7,8 @@ import {
 } from 'react-icons/hi';
 import SEO from '../components/SEO';
 
+import { formatImageUrl } from '../utils/urlHelper';
+
 const HomePage = () => {
   const [profile, setProfile] = useState(null);
   const [slides, setSlides] = useState([]);
@@ -65,7 +67,7 @@ const HomePage = () => {
                 opacity: idx === currentSlide ? 1 : 0,
                 transition: 'opacity 1s ease',
               }}>
-                <img src={slide.imageUrl} alt={slide.caption || 'Hero'} style={{
+                <img src={formatImageUrl(slide.imageUrl)} alt={slide.caption || 'Hero'} style={{
                   width: '100%', height: '100%', objectFit: 'cover',
                 }} />
                 <div style={{
@@ -176,7 +178,7 @@ const HomePage = () => {
                 <div key={item.key} className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
                     {item.data.photoUrl ? (
-                      <img src={item.data.photoUrl} alt={item.data.name} style={{ width: '96px', height: '96px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.badgeColor}`, margin: '0 auto', boxShadow: 'var(--shadow-md)' }} />
+                      <img src={formatImageUrl(item.data.photoUrl)} alt={item.data.name} style={{ width: '96px', height: '96px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.badgeColor}`, margin: '0 auto', boxShadow: 'var(--shadow-md)' }} />
                     ) : (
                       <div style={{ width: '96px', height: '96px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', color: 'var(--text-muted)' }}>👤</div>
                     )}
@@ -207,7 +209,7 @@ const HomePage = () => {
             <div className="grid-2col" style={{ alignItems: 'center' }}>
               <div className="animate-slide-in-left" style={{ textAlign: 'center' }}>
                 {dir.photoUrl ? (
-                  <img src={dir.photoUrl} alt={dir.name} style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '50%', border: '4px solid var(--color-accent)', boxShadow: 'var(--shadow-xl)', margin: '0 auto' }} />
+                  <img src={formatImageUrl(dir.photoUrl)} alt={dir.name} style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '50%', border: '4px solid var(--color-accent)', boxShadow: 'var(--shadow-xl)', margin: '0 auto' }} />
                 ) : (
                   <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '4rem', color: 'var(--text-muted)' }}>👤</div>
                 )}

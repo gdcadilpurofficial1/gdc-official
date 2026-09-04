@@ -11,6 +11,8 @@ const SectionHeader = ({ tagline, title }) => (
   </div>
 );
 
+import { formatImageUrl } from '../utils/urlHelper';
+
 const AboutPage = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -93,7 +95,7 @@ const AboutPage = () => {
                   <div className="director-grid" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'flex-start' }}>
                     <div style={{ textAlign: 'center', minWidth: '150px' }}>
                       {item.data.photoUrl ? (
-                        <img src={item.data.photoUrl} alt={item.data.name} style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.color}`, boxShadow: 'var(--shadow-lg)', margin: '0 auto' }} />
+                        <img src={formatImageUrl(item.data.photoUrl)} alt={item.data.name} style={{ width: '140px', height: '140px', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${item.color}`, boxShadow: 'var(--shadow-lg)', margin: '0 auto' }} />
                       ) : (
                         <div style={{ width: '140px', height: '140px', borderRadius: '50%', background: 'var(--bg-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
                           <HiUserCircle style={{ fontSize: '4rem', color: 'var(--text-muted)' }} />

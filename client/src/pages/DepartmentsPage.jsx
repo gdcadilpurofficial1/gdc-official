@@ -1,9 +1,11 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../utils/api';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import { HiArrowLeft, HiUsers, HiUserCircle } from 'react-icons/hi';
+
+import { formatImageUrl } from '../utils/urlHelper';
 
 const DepartmentsPage = () => {
   const { id } = useParams();
@@ -58,7 +60,7 @@ const DepartmentsPage = () => {
                   <div key={f._id} className="card" style={{ textAlign: 'center' }}>
                     <div className="card-body" style={{ padding: '2rem 1.5rem' }}>
                       {f.photoUrl ? (
-                        <img src={f.photoUrl} alt={f.name} style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1rem', border: '3px solid var(--color-primary-50)' }} />
+                        <img src={formatImageUrl(f.photoUrl)} alt={f.name} style={{ width: '90px', height: '90px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1rem', border: '3px solid var(--color-primary-50)' }} />
                       ) : (
                         <div style={{ width: '90px', height: '90px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <HiUserCircle style={{ fontSize: '2.5rem', color: 'var(--text-muted)' }} />

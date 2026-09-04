@@ -1,8 +1,10 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../utils/api';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import { HiDownload } from 'react-icons/hi';
+
+import { formatDownloadUrl } from '../utils/urlHelper';
 
 const categories = ['All', 'Form', 'Policy', 'Prospectus', 'Other'];
 
@@ -40,7 +42,7 @@ const DownloadsPage = () => {
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
               {filtered.map((dl, idx) => (
-                <a key={dl._id} href={dl.fileUrl} target="_blank" rel="noreferrer" className="card" style={{ textDecoration: 'none', animationDelay: `${idx * 0.05}s` }}>
+                <a key={dl._id} href={formatDownloadUrl(dl.fileUrl)} target="_blank" rel="noreferrer" className="card" style={{ textDecoration: 'none', animationDelay: `${idx * 0.05}s` }}>
                   <div className="card-body" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-md)', background: 'var(--color-danger-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <HiDownload style={{ fontSize: '1.25rem', color: 'var(--color-danger)' }} />

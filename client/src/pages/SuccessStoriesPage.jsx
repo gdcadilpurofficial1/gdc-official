@@ -1,8 +1,9 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../utils/api';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import { HiStar } from 'react-icons/hi';
+import { formatImageUrl } from '../utils/urlHelper';
 
 const SuccessStoriesPage = () => {
   const [stories, setStories] = useState([]);
@@ -33,7 +34,7 @@ const SuccessStoriesPage = () => {
                 <div key={story._id} className="card" style={{ textAlign: 'center', animationDelay: `${idx * 0.08}s` }}>
                   <div className="card-body" style={{ padding: '2.5rem 1.5rem' }}>
                     {story.photoUrl ? (
-                      <img src={story.photoUrl} alt={story.studentName} style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1.25rem', border: '3px solid var(--color-accent)', boxShadow: 'var(--shadow-md)' }} />
+                      <img src={formatImageUrl(story.photoUrl)} alt={story.studentName} style={{ width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 1.25rem', border: '3px solid var(--color-accent)', boxShadow: 'var(--shadow-md)' }} />
                     ) : (
                       <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: 'var(--bg-muted)', margin: '0 auto 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <HiStar style={{ fontSize: '2.5rem', color: 'var(--color-accent)' }} />

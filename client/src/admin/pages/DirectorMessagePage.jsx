@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import useCrud from '../../hooks/useCrud';
 import { HiUserCircle, HiSave, HiAcademicCap, HiOfficeBuilding, HiBadgeCheck, HiUserGroup } from 'react-icons/hi';
 import toast from 'react-hot-toast';
+import { formatImageUrl } from '../../utils/urlHelper';
 
 const LEADER_KEYS = [
   { id: 'ministerMessage', label: 'Minister for Education', defaultDesignation: 'Minister for Education & Literacy, Sindh', icon: HiBadgeCheck, color: 'var(--color-primary)' },
@@ -198,7 +199,7 @@ const DirectorMessagePage = () => {
             <div style={{ position: 'relative', width: '110px', height: '110px', margin: '0 auto 1rem' }}>
               {currentLeaderData.photoUrl ? (
                 <img
-                  src={currentLeaderData.photoUrl}
+                  src={formatImageUrl(currentLeaderData.photoUrl)}
                   alt={currentLeaderData.name}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', border: `3px solid ${currentLeaderObj?.color}`, boxShadow: 'var(--shadow-md)' }}
                 />

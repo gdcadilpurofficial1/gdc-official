@@ -3,9 +3,10 @@ import CrudTable from '../components/CrudTable';
 import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
+import { formatImageUrl } from '../../utils/urlHelper';
 
 const heroFields = [
-  { name: 'imageUrl', label: 'Image URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/...', hint: 'Upload image to Cloudinary and paste URL here' },
+  { name: 'imageUrl', label: 'Image URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/... or Google Drive link', hint: 'Direct image link or Google Drive share link' },
   { name: 'caption', label: 'Caption', type: 'text', placeholder: 'Slide caption text' },
   { name: 'linkUrl', label: 'Link URL', type: 'url', placeholder: 'Optional link when slide is clicked' },
   { name: 'order', label: 'Display Order', type: 'number', placeholder: '0', hint: 'Lower numbers appear first' },
@@ -16,7 +17,7 @@ const columns = [
   {
     key: 'imageUrl', label: 'Image',
     render: (item) => item.imageUrl ? (
-      <img src={item.imageUrl} alt={item.caption || 'Slide'} style={{ width: '80px', height: '45px', objectFit: 'cover', borderRadius: '6px', border: '1px solid var(--border-default)' }} />
+      <img src={formatImageUrl(item.imageUrl)} alt={item.caption || 'Slide'} style={{ width: '80px', height: '45px', objectFit: 'cover', borderRadius: '6px', border: '1px solid var(--border-default)' }} />
     ) : '—',
   },
   { key: 'caption', label: 'Caption' },

@@ -1,8 +1,10 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../utils/api';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import { HiSearch, HiDocumentText, HiDownload } from 'react-icons/hi';
+
+import { formatDownloadUrl } from '../utils/urlHelper';
 
 const categories = ['All', 'General', 'Academic', 'Examination', 'Admission', 'Administrative', 'Other'];
 
@@ -79,7 +81,7 @@ const NoticesPage = () => {
                         {notice.body && <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: '1.7' }}>{notice.body}</p>}
                       </div>
                       {notice.attachmentUrl && (
-                        <a href={notice.attachmentUrl} target="_blank" rel="noreferrer" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
+                        <a href={formatDownloadUrl(notice.attachmentUrl)} target="_blank" rel="noreferrer" className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
                           <HiDownload /> PDF
                         </a>
                       )}

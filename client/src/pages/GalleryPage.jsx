@@ -1,8 +1,10 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../utils/api';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import { HiX, HiChevronLeft, HiChevronRight, HiPhotograph, HiFilm } from 'react-icons/hi';
+
+import { formatImageUrl } from '../utils/urlHelper';
 
 const GalleryPage = () => {
   const [items, setItems] = useState([]);
@@ -57,7 +59,7 @@ const GalleryPage = () => {
                   className="card"
                 >
                   {item.mediaType === 'image' ? (
-                    <img src={item.mediaUrl} alt={item.caption || 'Gallery'} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                    <img src={formatImageUrl(item.mediaUrl)} alt={item.caption || 'Gallery'} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                       onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                       onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     />
@@ -90,7 +92,7 @@ const GalleryPage = () => {
         }}>
           <button onClick={(e) => { e.stopPropagation(); closeLightbox(); }} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', color: '#fff', fontSize: '2rem', cursor: 'pointer', zIndex: 210 }}><HiX /></button>
           <button onClick={(e) => { e.stopPropagation(); prevImage(); }} style={{ position: 'absolute', left: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><HiChevronLeft /></button>
-          <img src={filtered[lightboxIndex].mediaUrl} alt={filtered[lightboxIndex].caption || ''} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '85vh', objectFit: 'contain', borderRadius: 'var(--radius-md)' }} />
+          <img src={formatImageUrl(filtered[lightboxIndex].mediaUrl)} alt={filtered[lightboxIndex].caption || ''} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '90vw', maxHeight: '85vh', objectFit: 'contain', borderRadius: 'var(--radius-md)' }} />
           <button onClick={(e) => { e.stopPropagation(); nextImage(); }} style={{ position: 'absolute', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><HiChevronRight /></button>
           {filtered[lightboxIndex].caption && (
             <div style={{ position: 'absolute', bottom: '1.5rem', textAlign: 'center', color: '#fff', fontSize: '0.9375rem' }}>{filtered[lightboxIndex].caption}</div>

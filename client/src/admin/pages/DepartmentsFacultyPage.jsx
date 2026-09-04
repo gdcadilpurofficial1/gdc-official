@@ -4,6 +4,7 @@ import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
 import { HiArrowLeft, HiUserGroup } from 'react-icons/hi';
+import { formatImageUrl } from '../../utils/urlHelper';
 
 const deptFields = [
   { name: 'name', label: 'Department Name', type: 'text', required: true, placeholder: 'e.g. Department of English' },
@@ -70,7 +71,7 @@ const DepartmentsFacultyPage = () => {
     {
       key: 'photoUrl', label: 'Photo',
       render: (item) => item.photoUrl ? (
-        <img src={item.photoUrl} alt={item.name} style={{ width: '36px', height: '36px', objectFit: 'cover', borderRadius: '50%', border: '1px solid var(--border-default)' }} />
+        <img src={formatImageUrl(item.photoUrl)} alt={item.name} style={{ width: '36px', height: '36px', objectFit: 'cover', borderRadius: '50%', border: '1px solid var(--border-default)' }} />
       ) : <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--bg-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontSize: '0.75rem' }}>N/A</div>,
     },
     { key: 'name', label: 'Name' },

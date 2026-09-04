@@ -3,12 +3,13 @@ import CrudTable from '../components/CrudTable';
 import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
+import { formatDownloadUrl } from '../../utils/urlHelper';
 
 const fields = [
   { name: 'title', label: 'Notice Title', type: 'text', required: true, placeholder: 'Enter notice title' },
   { name: 'body', label: 'Notice Body', type: 'textarea', rows: 6, placeholder: 'Full notice content...' },
   { name: 'category', label: 'Category', type: 'select', options: ['General', 'Academic', 'Examination', 'Admission', 'Administrative', 'Other'] },
-  { name: 'attachmentUrl', label: 'Attachment URL (PDF)', type: 'url', placeholder: 'https://res.cloudinary.com/...', hint: 'Upload PDF to Cloudinary and paste URL here' },
+  { name: 'attachmentUrl', label: 'Attachment URL (PDF / Doc / Drive)', type: 'url', placeholder: 'https://res.cloudinary.com/... or Google Drive link', hint: 'Direct PDF link or Google Drive share link' },
   { name: 'isPinned', label: 'Pin to Top', type: 'toggle', defaultValue: false },
   { name: 'publishDate', label: 'Publish Date', type: 'date' },
   { name: 'expiryDate', label: 'Expiry Date', type: 'date', hint: 'Leave blank for no expiry' },
@@ -24,7 +25,7 @@ const columns = [
   )},
   { key: 'category', label: 'Category', render: (item) => <span className="badge badge-primary">{item.category}</span> },
   { key: 'publishDate', label: 'Published', render: (item) => item.publishDate ? new Date(item.publishDate).toLocaleDateString() : '—' },
-  { key: 'attachmentUrl', label: 'Attachment', render: (item) => item.attachmentUrl ? <a href={item.attachmentUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--color-info)', fontSize: '0.8125rem' }}>View PDF</a> : '—' },
+  { key: 'attachmentUrl', label: 'Attachment', render: (item) => item.attachmentUrl ? <a href={formatDownloadUrl(item.attachmentUrl)} target="_blank" rel="noreferrer" style={{ color: 'var(--color-info)', fontSize: '0.8125rem' }}>View Link</a> : '—' },
 ];
 
 const NoticesPage = () => {

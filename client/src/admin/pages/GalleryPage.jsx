@@ -3,9 +3,10 @@ import CrudTable from '../components/CrudTable';
 import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
+import { formatImageUrl } from '../../utils/urlHelper';
 
 const fields = [
-  { name: 'mediaUrl', label: 'Media URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/... or YouTube link', hint: 'Image/video URL from Cloudinary, YouTube, or Vimeo' },
+  { name: 'mediaUrl', label: 'Media URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/... or Google Drive link', hint: 'Direct image link or Google Drive share link' },
   { name: 'mediaType', label: 'Media Type', type: 'select', options: ['image', 'video'], required: true },
   { name: 'caption', label: 'Caption', type: 'text', placeholder: 'Describe this media' },
   { name: 'eventCategory', label: 'Event / Category', type: 'text', placeholder: 'e.g. Annual Function 2024, Sports Day' },
@@ -15,7 +16,7 @@ const columns = [
   {
     key: 'mediaUrl', label: 'Preview',
     render: (item) => item.mediaType === 'image' && item.mediaUrl ? (
-      <img src={item.mediaUrl} alt={item.caption || 'Gallery'} style={{ width: '60px', height: '45px', objectFit: 'cover', borderRadius: '6px', border: '1px solid var(--border-default)' }} />
+      <img src={formatImageUrl(item.mediaUrl)} alt={item.caption || 'Gallery'} style={{ width: '60px', height: '45px', objectFit: 'cover', borderRadius: '6px', border: '1px solid var(--border-default)' }} />
     ) : <span className="badge badge-info">{item.mediaType || 'video'}</span>,
   },
   { key: 'caption', label: 'Caption' },

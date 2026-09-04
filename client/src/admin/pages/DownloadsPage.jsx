@@ -3,18 +3,19 @@ import CrudTable from '../components/CrudTable';
 import CrudForm from '../components/CrudForm';
 import useCrud from '../../hooks/useCrud';
 import toast from 'react-hot-toast';
+import { formatDownloadUrl } from '../../utils/urlHelper';
 
 const fields = [
   { name: 'title', label: 'Document Title', type: 'text', required: true, placeholder: 'e.g. Admission Form 2024' },
   { name: 'category', label: 'Category', type: 'select', required: true, options: ['Form', 'Policy', 'Prospectus', 'Other'] },
-  { name: 'fileUrl', label: 'File URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/...', hint: 'Upload file to Cloudinary and paste URL' },
+  { name: 'fileUrl', label: 'File URL', type: 'url', required: true, placeholder: 'https://res.cloudinary.com/... or Google Drive link', hint: 'Direct link or Google Drive share link' },
   { name: 'isActive', label: 'Active', type: 'toggle', defaultValue: true },
 ];
 
 const columns = [
   { key: 'title', label: 'Title' },
   { key: 'category', label: 'Category', render: (item) => <span className="badge badge-info">{item.category}</span> },
-  { key: 'fileUrl', label: 'File', render: (item) => item.fileUrl ? <a href={item.fileUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--color-info)', fontSize: '0.8125rem' }}>Download</a> : '—' },
+  { key: 'fileUrl', label: 'File', render: (item) => item.fileUrl ? <a href={formatDownloadUrl(item.fileUrl)} target="_blank" rel="noreferrer" style={{ color: 'var(--color-info)', fontSize: '0.8125rem' }}>Download / View</a> : '—' },
   { key: 'uploadDate', label: 'Uploaded', render: (item) => item.uploadDate ? new Date(item.uploadDate).toLocaleDateString() : '—' },
 ];
 
