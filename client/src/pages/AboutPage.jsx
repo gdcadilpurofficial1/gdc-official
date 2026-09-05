@@ -88,7 +88,7 @@ const AboutPage = () => {
               {[
                 { key: 'ministerMessage', label: 'Minister for Education', data: profile.leadership.ministerMessage, color: 'var(--color-primary)' },
                 { key: 'secretaryMessage', label: 'Secretary College Education', data: profile.leadership.secretaryMessage, color: 'var(--color-secondary)' },
-                { key: 'dcMessage', label: 'Deputy Commissioner', data: profile.leadership.dcMessage, color: '#D69E2E' },
+                { key: 'dcMessage', label: 'Director General', data: profile.leadership.dcMessage, color: '#D69E2E' },
                 { key: 'principalMessage', label: 'Principal / Director', data: profile.leadership.principalMessage || profile.directorMessage, color: 'var(--color-accent)' },
               ].filter(item => item.data?.name).map((item) => (
                 <div key={item.key} className="card" style={{ padding: '2rem', borderLeft: `4px solid ${item.color}` }}>

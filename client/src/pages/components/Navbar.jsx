@@ -89,47 +89,6 @@ const Navbar = () => {
               <HiSearch />
             </button>
 
-            {user ? (
-              <Link
-                to="/admin"
-                className="btn btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                  padding: '0.375rem 0.875rem',
-                  fontSize: '0.8125rem',
-                  fontWeight: '600',
-                  borderRadius: 'var(--radius-md)',
-                  boxShadow: 'var(--shadow-sm)',
-                }}
-                title={`Signed in as ${user.name} (${user.role}) - Go to Dashboard`}
-              >
-                <HiViewGrid style={{ fontSize: '0.9375rem' }} />
-                <span>Go to Dashboard</span>
-              </Link>
-            ) : (
-              <Link
-                to="/admin/login"
-                className="btn btn-outline"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  padding: '0.35rem 0.75rem',
-                  fontSize: '0.8125rem',
-                  fontWeight: '600',
-                  borderColor: 'var(--color-primary)',
-                  color: 'var(--color-primary)',
-                  borderRadius: 'var(--radius-md)',
-                }}
-                title="Staff / Admin Portal Login"
-              >
-                <HiLockClosed style={{ fontSize: '0.875rem' }} />
-                <span>Portal Login</span>
-              </Link>
-            )}
-
             <ThemeToggle />
           </div>
 
@@ -174,49 +133,6 @@ const Navbar = () => {
             </NavLink>
           ))}
 
-          {user ? (
-            <Link
-              to="/admin"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                marginTop: '1rem',
-                padding: '0.75rem',
-                background: 'var(--color-accent)',
-                color: '#1A202C',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '700',
-                fontSize: '0.875rem',
-              }}
-            >
-              <HiViewGrid /> Go to Dashboard ({user.name})
-            </Link>
-          ) : (
-            <Link
-              to="/admin/login"
-              onClick={() => setMobileOpen(false)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                marginTop: '1rem',
-                padding: '0.75rem',
-                background: 'var(--color-primary)',
-                color: '#fff',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '0.875rem',
-              }}
-            >
-              <HiLockClosed /> Staff / Admin Portal Login
-            </Link>
-          )}
         </div>
       )}
 

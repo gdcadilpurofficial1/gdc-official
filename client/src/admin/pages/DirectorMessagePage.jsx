@@ -7,7 +7,7 @@ import { formatImageUrl } from '../../utils/urlHelper';
 const LEADER_KEYS = [
   { id: 'ministerMessage', label: 'Minister for Education', defaultDesignation: 'Minister for Education & Literacy, Sindh', icon: HiBadgeCheck, color: 'var(--color-primary)' },
   { id: 'secretaryMessage', label: 'Secretary College Education', defaultDesignation: 'Secretary, College Education Dept, Sindh', icon: HiOfficeBuilding, color: 'var(--color-secondary)' },
-  { id: 'dcMessage', label: 'Deputy Commissioner (DC)', defaultDesignation: 'Deputy Commissioner, District Ghotki', icon: HiUserGroup, color: '#D69E2E' },
+  { id: 'dcMessage', label: 'Director General', defaultDesignation: 'Director General, District Ghotki', icon: HiUserGroup, color: '#D69E2E' },
   { id: 'principalMessage', label: 'Principal / Director', defaultDesignation: 'Principal, GDC Adilpur', icon: HiAcademicCap, color: 'var(--color-accent)' },
 ];
 
@@ -17,7 +17,7 @@ const DirectorMessagePage = () => {
   const [leadership, setLeadership] = useState({
     ministerMessage: { name: '', designation: 'Minister for Education & Literacy, Sindh', photoUrl: '', message: '' },
     secretaryMessage: { name: '', designation: 'Secretary, College Education Dept, Sindh', photoUrl: '', message: '' },
-    dcMessage: { name: '', designation: 'Deputy Commissioner, District Ghotki', photoUrl: '', message: '' },
+    dcMessage: { name: '', designation: 'Director General, District Ghotki', photoUrl: '', message: '' },
     principalMessage: { name: '', designation: 'Principal, GDC Adilpur', photoUrl: '', message: '' },
   });
   const [saving, setSaving] = useState(false);
@@ -79,7 +79,7 @@ const DirectorMessagePage = () => {
           Leadership & Dignitaries Messages
         </h1>
         <p style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem' }}>
-          Manage official statements and photos for Education Minister, Secretary, Deputy Commissioner, and Principal.
+          Manage official statements and photos for Education Minister, Secretary, Director General, and Principal.
         </p>
       </div>
 

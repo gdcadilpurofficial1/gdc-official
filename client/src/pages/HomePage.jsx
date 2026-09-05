@@ -172,7 +172,7 @@ const HomePage = () => {
               {[
                 { key: 'ministerMessage', label: 'Minister for Education', data: profile.leadership?.ministerMessage, badgeColor: 'var(--color-primary)' },
                 { key: 'secretaryMessage', label: 'Secretary College Education', data: profile.leadership?.secretaryMessage, badgeColor: 'var(--color-secondary)' },
-                { key: 'dcMessage', label: 'Deputy Commissioner', data: profile.leadership?.dcMessage, badgeColor: '#D69E2E' },
+                { key: 'dcMessage', label: 'Director General', data: profile.leadership?.dcMessage, badgeColor: '#D69E2E' },
                 { key: 'principalMessage', label: 'Principal / Director', data: profile.leadership?.principalMessage || profile.directorMessage, badgeColor: 'var(--color-accent)' },
               ].filter(item => item.data?.name).map((item) => (
                 <div key={item.key} className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>

@@ -29,9 +29,9 @@ const collegeProfileSchema = new mongoose.Schema(
         message: { type: String, default: '' },
       },
       dcMessage: {
-        title: { type: String, default: 'Deputy Commissioner' },
+        title: { type: String, default: 'Director General' },
         name: { type: String, default: '' },
-        designation: { type: String, default: 'Deputy Commissioner, District Ghotki' },
+        designation: { type: String, default: 'Director General, District Ghotki' },
         photoUrl: { type: String, default: '' },
         message: { type: String, default: '' },
       },
