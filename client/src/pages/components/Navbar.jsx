@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 import ThemeToggle from '../../components/ThemeToggle';
 import SearchModal from '../../components/SearchModal';
-import { HiMenuAlt3, HiX, HiLockClosed, HiViewGrid, HiSearch } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiSearch } from 'react-icons/hi';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -20,7 +19,6 @@ const navLinks = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const { user } = useAuth();
 
   const linkStyle = (isActive) => ({
     fontSize: '0.875rem',
@@ -132,7 +130,6 @@ const Navbar = () => {
               {link.label}
             </NavLink>
           ))}
-
         </div>
       )}
 
