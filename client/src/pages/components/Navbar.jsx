@@ -115,13 +115,13 @@ const Navbar = () => {
         <div className="animate-slide-up" style={{
           position: 'absolute', top: '73px', left: 0, right: 0,
           background: 'var(--bg-surface)', borderBottom: '1px solid var(--border-default)',
-          boxShadow: 'var(--shadow-lg)', padding: '1rem 1.25rem', zIndex: 99,
+          boxShadow: 'var(--shadow-lg)', padding: '1rem 1.25rem', zIndex: 9999,
         }}>
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === '/'}
               onClick={() => setMobileOpen(false)}
               style={({ isActive }) => ({
-                display: 'block', padding: '0.75rem 0',
+                display: 'block', padding: '0.75rem 0', textAlign: 'center',
                 fontSize: '0.9375rem', fontWeight: isActive ? '700' : '500',
                 color: isActive ? 'var(--color-accent)' : 'var(--text-primary)',
                 borderBottom: '1px solid var(--border-light)', textDecoration: 'none',
