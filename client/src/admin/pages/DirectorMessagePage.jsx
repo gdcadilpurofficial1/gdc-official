@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import useCrud from '../../hooks/useCrud';
-import { HiUserCircle, HiSave, HiAcademicCap, HiOfficeBuilding, HiBadgeCheck, HiUserGroup } from 'react-icons/hi';
+import { HiUserCircle, HiSave, HiAcademicCap, HiOfficeBuilding, HiBadgeCheck, HiUserGroup, HiGlobeAlt } from 'react-icons/hi';
 import toast from 'react-hot-toast';
 import { formatImageUrl } from '../../utils/urlHelper';
 
@@ -8,7 +8,8 @@ const LEADER_KEYS = [
   { id: 'ministerMessage', label: 'Minister for Education', defaultDesignation: 'Minister for Education & Literacy, Sindh', icon: HiBadgeCheck, color: 'var(--color-primary)' },
   { id: 'secretaryMessage', label: 'Secretary College Education', defaultDesignation: 'Secretary, College Education Dept, Sindh', icon: HiOfficeBuilding, color: 'var(--color-secondary)' },
   { id: 'dcMessage', label: 'Director General', defaultDesignation: 'Director General, District Ghotki', icon: HiUserGroup, color: '#D69E2E' },
-  { id: 'principalMessage', label: 'Principal / Director', defaultDesignation: 'Principal, GDC Adilpur', icon: HiAcademicCap, color: 'var(--color-accent)' },
+  { id: 'regionalDirectorMessage', label: 'Regional Director', defaultDesignation: 'Regional Director Colleges, Sukkur Region', icon: HiGlobeAlt, color: '#9F7AEA' },
+  { id: 'principalMessage', label: 'Principal', defaultDesignation: 'Principal, GDC Adilpur', icon: HiAcademicCap, color: 'var(--color-accent)' },
 ];
 
 const DirectorMessagePage = () => {
@@ -18,6 +19,7 @@ const DirectorMessagePage = () => {
     ministerMessage: { name: '', designation: 'Minister for Education & Literacy, Sindh', photoUrl: '', message: '' },
     secretaryMessage: { name: '', designation: 'Secretary, College Education Dept, Sindh', photoUrl: '', message: '' },
     dcMessage: { name: '', designation: 'Director General, District Ghotki', photoUrl: '', message: '' },
+    regionalDirectorMessage: { name: '', designation: 'Regional Director Colleges, Sukkur Region', photoUrl: '', message: '' },
     principalMessage: { name: '', designation: 'Principal, GDC Adilpur', photoUrl: '', message: '' },
   });
   const [saving, setSaving] = useState(false);
@@ -79,7 +81,7 @@ const DirectorMessagePage = () => {
           Leadership & Dignitaries Messages
         </h1>
         <p style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem' }}>
-          Manage official statements and photos for Education Minister, Secretary, Director General, and Principal.
+          Manage official statements and photos for Education Minister, Secretary, Director General, Regional Director, and Principal.
         </p>
       </div>
 

@@ -89,7 +89,8 @@ const AboutPage = () => {
                 { key: 'ministerMessage', label: 'Minister for Education', data: profile.leadership.ministerMessage, color: 'var(--color-primary)' },
                 { key: 'secretaryMessage', label: 'Secretary College Education', data: profile.leadership.secretaryMessage, color: 'var(--color-secondary)' },
                 { key: 'dcMessage', label: 'Director General', data: profile.leadership.dcMessage, color: '#D69E2E' },
-                { key: 'principalMessage', label: 'Principal / Director', data: profile.leadership.principalMessage || profile.directorMessage, color: 'var(--color-accent)' },
+                { key: 'regionalDirectorMessage', label: 'Regional Director', data: profile.leadership.regionalDirectorMessage, color: '#9F7AEA' },
+                { key: 'principalMessage', label: 'Principal', data: profile.leadership.principalMessage || profile.directorMessage, color: 'var(--color-accent)' },
               ].filter(item => item.data?.name).map((item) => (
                 <div key={item.key} className="card" style={{ padding: '2rem', borderLeft: `4px solid ${item.color}` }}>
                   <div className="director-grid" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'flex-start' }}>

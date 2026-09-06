@@ -35,8 +35,15 @@ const collegeProfileSchema = new mongoose.Schema(
         photoUrl: { type: String, default: '' },
         message: { type: String, default: '' },
       },
+      regionalDirectorMessage: {
+        title: { type: String, default: 'Regional Director' },
+        name: { type: String, default: '' },
+        designation: { type: String, default: 'Regional Director Colleges, Sukkur Region' },
+        photoUrl: { type: String, default: '' },
+        message: { type: String, default: '' },
+      },
       principalMessage: {
-        title: { type: String, default: 'Principal / Director' },
+        title: { type: String, default: 'Principal' },
         name: { type: String, default: '' },
         designation: { type: String, default: 'Principal, GDC Adilpur' },
         photoUrl: { type: String, default: '' },
